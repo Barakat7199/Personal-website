@@ -17,4 +17,38 @@
 
   <!-- Typed Text -->
   <h1 class="text-4xl font-bold mb-4 text-center">
-    <span id="typed-text">
+    <span id="typed-text"></span>
+  </h1>
+
+  <!-- Intro Text -->
+  <p id="intro-text" class="text-lg text-center max-w-xl"></p>
+
+  <script>
+    let typed;
+
+    const texts = {
+      en: {
+        typed: ["Barakat", "Electronics Engineer", "Web Developer"],
+        intro: "Passionate about technology, creativity, and digital transformation."
+      },
+      ar: {
+        typed: ["بركات", "مهندس إلكترونيات", "مبرمج مواقع"],
+        intro: "شغوف بالتقنية، الإبداع، والتحول الرقمي."
+      }
+    };
+
+    function switchLang(lang) {
+      document.getElementById("intro-text").innerText = texts[lang].intro;
+      if (typed) typed.destroy();
+      typed = new Typed("#typed-text", {
+        strings: texts[lang].typed,
+        typeSpeed: 50,
+        backSpeed: 30,
+        loop: true
+      });
+    }
+
+    window.onload = () => switchLang("en");
+  </script>
+</body>
+</html>
