@@ -7,49 +7,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body class="bg-gray-100 text-gray-800 flex flex-col items-center justify-center min-h-screen p-6">
 
   <!-- Language Switch -->
-  <div class="flex justify-end p-4">
-    <button onclick="switchLang('en')" class="mx-2 px-3 py-1 bg-blue-600 rounded">EN</button>
-    <button onclick="switchLang('ar')" class="mx-2 px-3 py-1 bg-green-600 rounded">ع</button>
+  <div class="mb-6">
+    <button onclick="switchLang('en')" class="px-4 py-2 bg-blue-500 text-white rounded mx-2">English</button>
+    <button onclick="switchLang('ar')" class="px-4 py-2 bg-green-500 text-white rounded mx-2">العربية</button>
   </div>
 
-  <!-- Hero Section -->
-  <section class="text-center py-20">
-    <h1 class="text-4xl font-bold mb-4"><span id="typed-text"></span></h1>
-    <p id="intro-text" class="text-lg"></p>
-    <a href="#contact" class="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Contact Me</a>
-  </section>
-
-  <script>
-    const texts = {
-      en: {
-        typed: ["Barakat", "Electronics Engineer", "Web Developer"],
-        intro: "Passionate about technology, creativity, and digital transformation."
-      },
-      ar: {
-        typed: ["بركات", "مهندس إلكترونيات", "مبرمج مواقع"],
-        intro: "شغوف بالتقنية، الإبداع، والتحول الرقمي."
-      }
-    };
-
-    let currentLang = "en";
-    let typed;
-
-    function switchLang(lang) {
-      currentLang = lang;
-      document.getElementById("intro-text").innerText = texts[lang].intro;
-      typed.destroy();
-      typed = new Typed("#typed-text", {
-        strings: texts[lang].typed,
-        typeSpeed: 50,
-        backSpeed: 30,
-        loop: true
-      });
-    }
-
-    window.onload = () => switchLang(currentLang);
-  </script>
-</body>
-</html>
+  <!-- Typed Text -->
+  <h1 class="text-4xl font-bold mb-4 text-center">
+    <span id="typed-text">
